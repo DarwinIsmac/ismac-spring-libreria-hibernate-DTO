@@ -11,9 +11,10 @@ import org.springframework.stereotype.Repository;
 
 import com.distribuida.entities.FacturaDetalle;
 
-@Repository
-public class FacturaDetalleDAOImpl implements FacturaDetalleDAO{
 
+@Repository
+public class FacturaDetalleDAOImpl implements FacturaDetalleDAO {
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 	
@@ -23,11 +24,10 @@ public class FacturaDetalleDAOImpl implements FacturaDetalleDAO{
 	public List<FacturaDetalle> findAll() {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		return session.createQuery("from FacturaDetalle", FacturaDetalle.class).getResultList();
+		return session.createQuery("FROM FacturaDetalle", FacturaDetalle.class).getResultList();
 	}
 
 	@Override
-	@Transactional 
 	public FacturaDetalle findOne(int id) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -35,30 +35,34 @@ public class FacturaDetalleDAOImpl implements FacturaDetalleDAO{
 	}
 
 	@Override
-	@Transactional
-	public void add(FacturaDetalle facturadetalle) {
+	public void add(FacturaDetalle facturaDetalle) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(facturadetalle);
+		session.saveOrUpdate(facturaDetalle);
+		
 		
 	}
 
 	@Override
-	@Transactional
-	public void up(FacturaDetalle facturadetalle) {
+	public void up(FacturaDetalle facturaDetalle) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(facturadetalle);
+		session.saveOrUpdate(facturaDetalle);
 		
 	}
 
 	@Override
-	@Transactional
 	public void del(int id) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(findOne(id));
 		
+	}
+
+	@Override
+	public List<FacturaDetalle> findAll(String busqueda) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

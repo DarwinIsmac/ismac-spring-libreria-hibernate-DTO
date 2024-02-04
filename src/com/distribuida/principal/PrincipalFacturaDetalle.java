@@ -22,8 +22,8 @@ public class PrincipalFacturaDetalle {
 		
 		FacturaDetalleDAO facturadetalleDAO = context.getBean("facturadetalleDAOImpl", FacturaDetalleDAO.class);
 			
-		FacturaDetalle facturadetalle2 = new FacturaDetalle(0,"2",30.45,0,0);
-		facturadetalleDAO.add(facturadetalle2);
+//		FacturaDetalle facturadetalle2 = new FacturaDetalle(0,"2",30.45,0,0);
+//		facturadetalleDAO.add(facturadetalle2);
 //		Facturadetalle facturadetalle3 = new Facturadetalle(0,"2",30.45,0,0);;
 //		facturadetalleDAO.up(facturadetalle3);
 		

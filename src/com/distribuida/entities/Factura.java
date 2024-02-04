@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
 @Table(name = "factura")
 public class Factura {
 	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_factura")
@@ -27,28 +28,36 @@ public class Factura {
 	private String numFactura;
 	@Column(name = "fecha")
 	private Date fecha;
-	@Column(name = "totalNeto")
+	@Column(name = "total_neto")
 	private Double totalNeto;
 	@Column(name = "iva")
 	private Double iva;
 	@Column(name = "total")
 	private Double total;
 	
-	
-
-	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
+	//cascadeType.Remove no usar 
+	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinColumn(name = "id_cliente")
 	private Cliente cliente;
+	
+	public Factura() {}
+	
+	
+	
 
-	public Factura(int idFactura, String numFactura, Date fecha, Double totalNeto, Double iva, Double total) {
+	public Factura(int idFactura, String numFactura, Date fecha, Double totalNeto, Double iva, Double total,
+			Cliente cliente) {
 		this.idFactura = idFactura;
 		this.numFactura = numFactura;
 		this.fecha = fecha;
 		this.totalNeto = totalNeto;
 		this.iva = iva;
 		this.total = total;
-
+		this.cliente = cliente;
 	}
+
+
+
 
 	public int getIdFactura() {
 		return idFactura;
@@ -58,12 +67,12 @@ public class Factura {
 		this.idFactura = idFactura;
 	}
 
-	public String getNumFactura() {
+	public String getNemFactura() {
 		return numFactura;
 	}
 
-	public void setNumFactura(String numFactura) {
-		this.numFactura = numFactura;
+	public void setNemFactura(String nemFactura) {
+		this.numFactura = nemFactura;
 	}
 
 	public Date getFecha() {
@@ -98,11 +107,18 @@ public class Factura {
 		this.total = total;
 	}
 
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 
 	@Override
 	public String toString() {
-		return "Factura [idFactura=" + idFactura + ", numFactura=" + numFactura + ", fecha=" + fecha + ", totalNeto="
-				+ totalNeto + ", iva=" + iva + ", total=" + total + "]";
+		return "Factura [idFactura=" + idFactura + ", nemFactura=" + numFactura + ", fecha=" + fecha + ", totalNeto="
+				+ totalNeto + ", iva=" + iva + ", total=" + total + ", cliente=" + cliente + "]";
 	}
 	
 	

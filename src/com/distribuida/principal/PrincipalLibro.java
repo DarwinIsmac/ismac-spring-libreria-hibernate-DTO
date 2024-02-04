@@ -1,6 +1,6 @@
 package com.distribuida.principal;
 
-import java.util.Date;
+//import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,8 +16,8 @@ public class PrincipalLibro {
 		
 		LibroDAO libroDAO = context.getBean("libroDAOImpl", LibroDAO.class);
 			
-		Libro libro2 = new Libro(0,"Libro 23","Santillana",400,"1ra ED","Español", new Date(), "Animado", "Pasta Dura", 978-1612212121, 20, "Gris", "Virtual", 15.60, 0 , 0 );
-		libroDAO.add(libro2);
+//		Libro libro2 = new Libro(0,"Libro 23","Santillana",400,"1ra ED","Español", new Date(), "Animado", "Pasta Dura", 978-1612212121, 20, "Gris", "Virtual", 15.60, 0 , 0 );
+//		libroDAO.add(libro2);
 //		Libro cliente3 = new Libro(0,"Libro 25","Santillana","400","1ra ED","Español", "new Date", "Animado", "Pasta Dura", "978-1612212121", "20", "Gris", "Virtual", "15.60", 0 , 0 );
 //		libroDAO.up(libro3);
 		

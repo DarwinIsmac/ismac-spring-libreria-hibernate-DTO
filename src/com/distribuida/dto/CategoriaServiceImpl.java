@@ -1,60 +1,52 @@
-package com.distribuida.dao;
+package com.distribuida.dto;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
+import com.distribuida.dao.CategoriaDAO;
 import com.distribuida.entities.Categoria;
 
 
-@Repository
-public class CategoriaDAOImpl implements CategoriaDAO{
+@Service
+public class CategoriaServiceImpl implements CategoriaService {
 	
 	
 	@Autowired
-	private SessionFactory sessionFactory;
 	
+	private CategoriaDAO categoriaDAO;
 
 	@Override
-	@Transactional
 	public List<Categoria> findAll() {
 		// TODO Auto-generated method stub
-		Session session = sessionFactory.getCurrentSession();
-		
-		
-		return session.createQuery(" from Categoria", Categoria.class).getResultList();
+		return categoriaDAO.findAll();
 	}
 
 	@Override
-	@Transactional
 	public Categoria findOne(int id) {
 		// TODO Auto-generated method stub
-		Session session = sessionFactory.getCurrentSession();
-		return session.get(Categoria.class, id);
+		return categoriaDAO.findOne(id);
 	}
 
 	@Override
 	public void add(Categoria categoria) {
 		// TODO Auto-generated method stub
+		categoriaDAO.add(categoria);
 		
 	}
 
 	@Override
 	public void up(Categoria categoria) {
 		// TODO Auto-generated method stub
-		
+		categoriaDAO.up(categoria);
 	}
 
 	@Override
 	public void del(int id) {
 		// TODO Auto-generated method stub
+		categoriaDAO.del(id);
 		
 	}
-	
 
 }

@@ -11,12 +11,14 @@ import org.springframework.stereotype.Repository;
 
 import com.distribuida.entities.Cliente;
 
-
 @Repository
-public class ClienteDAOImpl implements ClienteDAO{
-
+public class ClienteDAOImpl implements ClienteDAO {
+	
+	
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	
 	
 	
 	@Override
@@ -24,15 +26,19 @@ public class ClienteDAOImpl implements ClienteDAO{
 	public List<Cliente> findAll() {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
+		
+		
+		
+		
 		return session.createQuery("from Cliente", Cliente.class).getResultList();
 	}
 
 	@Override
-	@Transactional 
+	@Transactional
 	public Cliente findOne(int id) {
 		// TODO Auto-generated method stub
-		Session session = sessionFactory.getCurrentSession();
 		
+		Session session = sessionFactory.getCurrentSession();
 		return session.get(Cliente.class, id);
 	}
 
@@ -40,8 +46,14 @@ public class ClienteDAOImpl implements ClienteDAO{
 	@Transactional
 	public void add(Cliente cliente) {
 		// TODO Auto-generated method stub
+		Cliente cliente1 = new Cliente();
+		cliente1.setIdCliente(0);
+		cliente.setCedula("1722805866");
+		
+		
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(cliente);
+		
 		
 	}
 
@@ -49,6 +61,7 @@ public class ClienteDAOImpl implements ClienteDAO{
 	@Transactional
 	public void up(Cliente cliente) {
 		// TODO Auto-generated method stub
+		
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(cliente);
 		
@@ -58,9 +71,10 @@ public class ClienteDAOImpl implements ClienteDAO{
 	@Transactional
 	public void del(int id) {
 		// TODO Auto-generated method stub
+		
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(findOne(id));
 		
-	}
+	} 
 
 }

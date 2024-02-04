@@ -14,99 +14,105 @@ import org.springframework.stereotype.Component;
 @Table(name = "cliente")
 public class Cliente {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_cliente")
-	private int idCliente;
-	@Column(name = "cedula")
-	private String cedula;
-	@Column(name = "nombre")
-	private String nombre;
-	@Column(name = "apellido")
-	private String apellido;
-	@Column(name = "direccion")
-	private String direccion;
-	@Column(name = "telefono")
-	private String telefono;
-	@Column(name = "correo")
-	private String correo;
-	
-	public Cliente () {}
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Column(name = "id_cliente")
+private int  idCliente;
+@Column(name = "cedula")
+private String cedula;
+@Column(name = "nombre")
+private String nombre;
+@Column(name = "apellido")
+private String apellido;
+@Column(name = "direccion")
+private String direcion;
+@Column(name = "telefono")
+private String telefono;
+@Column(name = "correo")
+private String correo;
 
-	public Cliente(int idCliente, String cedula, String nombre, String apellido, String direccion, String telefono,
-			String correo) {
-		this.idCliente = idCliente;
-		this.cedula = cedula;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.direccion = direccion;
-		this.telefono = telefono;
-		this.correo = correo;
-	}
+public Cliente() { }
 
 
 
-	public int getIdCliente() {
-		return idCliente;
-	}
 
-	public void setIdCliente(int idCliente) {
-		this.idCliente = idCliente;
-	}
+public Cliente(int idCliente, String cedula, String nombre, String apellido, String direcion, String telefono,
+		String correo) {
+	this.idCliente = idCliente;
+	this.cedula = cedula;
+	this.nombre = nombre;
+	this.apellido = apellido;
+	this.direcion = direcion;
+	this.telefono = telefono;
+	this.correo = correo;
+}
 
-	public String getCedula() {
-		return cedula;
-	}
 
-	public void setCedula(String cedula) {
-		this.cedula = cedula;
-	}
 
-	public String getNombre() {
-		return nombre;
-	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+public int getIdCliente() {
+	return idCliente;
+}
 
-	public String getApellido() {
-		return apellido;
-	}
+public void setIdCliente(int idCliente) {
+	this.idCliente = idCliente;
+}
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
+public String getCedula() {
+	return cedula;
+}
 
-	public String getDireccion() {
-		return direccion;
-	}
+public void setCedula(String cedula) {
+	this.cedula = cedula;
+}
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
+public String getNombre() {
+	return nombre;
+}
 
-	public String getTelefono() {
-		return telefono;
-	}
+public void setNombre(String nombre) {
+	this.nombre = nombre;
+}
 
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
+public String getApellido() {
+	return apellido;
+}
 
-	public String getCorreo() {
-		return correo;
-	}
+public void setApellido(String apellido) {
+	this.apellido = apellido;
+}
 
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
+public String getDirecion() {
+	return direcion;
+}
 
-	@Override
-	public String toString() {
-		return "Cliente [idCliente=" + idCliente + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido="
-				+ apellido + ", direccion=" + direccion + ", telefono=" + telefono + ", correo=" + correo + "]";
-	}
-	
-	
+public void setDirecion(String direcion) {
+	this.direcion = direcion;
+}
+
+public String getTelefono() {
+	return telefono;
+}
+
+public void setTelefono(String telefono) {
+	this.telefono = telefono;
+}
+
+public String getCorreo() {
+	return correo;
+}
+
+public void setCorreo(String correo) {
+	this.correo = correo;
+}
+
+@Override
+public String toString() {
+	return "Cliente [idCliente=" + idCliente + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido
+			+ ", direcion=" + direcion + ", telefono=" + telefono + ", correo=" + correo + "]";
+} 
+
+
+
+
 }

@@ -15,4 +15,6 @@ public interface FacturaDAO {
 	public void up(Factura factura);
 	
 	public void del(int id);
+	
+	public List<Factura> findAll(String busqueda);
 }

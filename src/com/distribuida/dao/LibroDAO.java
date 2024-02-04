@@ -5,14 +5,18 @@ import java.util.List;
 import com.distribuida.entities.Libro;
 
 public interface LibroDAO {
+
+	List<Libro> findAll();
+
+	Libro findOne(int id);
+
+	void add(Libro libro);
+
+	List<Libro> findAll(String busqueda);
+
+	void del(int id);
+
+	void up(Libro libro);
 	
-	public List<Libro> findAll();
-	
-	public Libro findOne(int id);
-	
-	public void add(Libro libro);
-	
-	public void up(Libro libro);
-	
-	public void del(int id);
+	// spring boot - CrudeRepository
 }

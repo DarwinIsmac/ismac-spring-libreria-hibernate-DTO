@@ -17,43 +17,40 @@ import org.springframework.stereotype.Component;
 @Table(name = "factura_detalle")
 public class FacturaDetalle {
 	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_factura_detalle")
-	private int id_Factura_Detalle;
+	private int idFacturaDetealle;
 	@Column(name = "cantidad")
-	private Double cantidad;
+	private int cantidad;
 	@Column(name = "subtotal")
 	private Double subtotal;
-
-	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
+	
+	
+	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinColumn(name = "id_factura")
 	private Factura factura;
 	
-	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
+	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinColumn(name = "id_libro")
 	private Libro libro;
 	
-	public FacturaDetalle(int id_factura_detalle, Double cantidad, Double subtotal) {
-		this.id_Factura_Detalle = id_factura_detalle;
-		this.cantidad = cantidad;
-		this.subtotal = subtotal;
+	public FacturaDetalle() {}
 
+	public int getIdFacturaDetealle() {
+		return idFacturaDetealle;
 	}
 
-	public int getIdFactura_Detalle() {
-		return id_Factura_Detalle;
+	public void setIdFacturaDetealle(int idFacturaDetealle) {
+		this.idFacturaDetealle = idFacturaDetealle;
 	}
 
-	public void setIdFactura_Detalle(int id_Factura_Detalle) {
-		this.id_Factura_Detalle = id_Factura_Detalle;
-	}
-
-	public Double getCantidad() {
+	public int getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(Double cantidad) {
+	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
 
@@ -83,7 +80,7 @@ public class FacturaDetalle {
 
 	@Override
 	public String toString() {
-		return "FacturaDetalle [idFactura_Detalle=" + id_Factura_Detalle + ", cantidad=" + cantidad + ", subtotal="
+		return "FacturaDetalle [idFacturaDetealle=" + idFacturaDetealle + ", cantidad=" + cantidad + ", subtotal="
 				+ subtotal + ", factura=" + factura + ", libro=" + libro + "]";
 	}
 	
@@ -93,6 +90,5 @@ public class FacturaDetalle {
 	
 	
 	
-	
-	
+
 }

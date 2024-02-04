@@ -1,6 +1,7 @@
 package com.distribuida.principal;
 
 import java.util.Date;
+//import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -13,34 +14,57 @@ import com.distribuida.entities.Cliente;
 public class PrincipalFactura {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		
+		
+		
+		
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
 		
 		FacturaDAO facturaDAO = context.getBean("facturaDAOImpl", FacturaDAO.class);
 		ClienteDAO clienteDAO = context.getBean("clienteDAOImpl", ClienteDAO.class);
 		
-		Cliente cliente2 = clienteDAO.findOne(2);
-		Factura factura2 = new Factura(0,"FAC-000111",new Date(),164.30,0.12,170.12, cliente);
-		facturaDAO.add(factura2);
-//		Factura factura3 = new Factura(39,"1754326178","David","Sanchez","Quito","0981222541", "dfernan@gmail.com");
-//		facturaDAO.up(cliente3);
 		
-//		facturaDAO.del(39);
+		
+		Cliente cliente = clienteDAO.findOne(1);
+		Factura factura = new Factura(0,"FAC-0090",new Date(), 22.22,2.30,25.23, cliente);
+		
+		
+		//facturaDAO.add(factura);
+		
+		
+
+		Cliente cliente2 = clienteDAO.findOne(2);
+		Factura factura2 = new Factura(86,"FAC-0090",new Date(), 3.3,33.3,35.3, cliente2);
+		
+		//facturaDAO.up(factura2);
+		
+		
+		//facturaDAO.del(86);
+		
+		
+		
 		
 		List<Factura> facturas = facturaDAO.findAll();
 		
-		Factura factura = facturaDAO.findOne(1);
-		
-		
 		for (Factura item : facturas) {
-			System.out.println(item.toString());
+			
+			System.out.println(item);
+			
+			
 		}
+			
+			//Factura factura = facturaDAO.findOne(1);
+			//System.out.println(factura.toString());
+			
+			
 		
-//		System.out.println(cliente.toString());
+		
 		
 		context.close();
-				
 		
+		
+		
+
 	}
 
 }

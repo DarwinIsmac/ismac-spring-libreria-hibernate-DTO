@@ -12,22 +12,23 @@ import org.springframework.stereotype.Repository;
 import com.distribuida.entities.Libro;
 
 @Repository
-public class LibroDAOImpl implements LibroDAO{
-
+public class LibroDAOImpl implements LibroDAO {
+	
+	
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	
+
 	@Override
 	@Transactional
 	public List<Libro> findAll() {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		return session.createQuery("from Libro", Libro.class).getResultList();
+		
+		return session.createQuery("FROM Libro", Libro.class).getResultList();
 	}
 
-	@Override
-	@Transactional 
+	@Override	
+	@Transactional
 	public Libro findOne(int id) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -53,12 +54,18 @@ public class LibroDAOImpl implements LibroDAO{
 	}
 
 	@Override
-	@Transactional
 	public void del(int id) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(findOne(id));
 		
+	}
+
+	@Override
+	@Transactional
+	public List<Libro> findAll(String busqueda) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
